@@ -2,8 +2,8 @@ name: 同步上游
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # 每6小时
-  workflow_dispatch:  # 也可以手动触发
+    - cron: '0 0 * * *'  # 每天0点
+  workflow_dispatch:  # 也可手动触发
 
 jobs:
   sync:
