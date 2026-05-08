@@ -1,0 +1,17 @@
+name: 同步上游
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # 每6小时
+  workflow_dispatch:  # 也可以手动触发
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: 同步 fork 与上游仓库
+        run: gh repo sync xy-ylr/hermes-agent -b main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
